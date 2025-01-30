@@ -1,0 +1,224 @@
+@import '../../../styles/variables';
+
+.certificates {
+  padding: 4rem 0;
+  background-color: $white;
+
+  h2 {
+    text-align: center;
+    color: $primary-color;
+    margin-bottom: 3rem;
+  }
+
+  .certificates-filter {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+
+    .filter-btn {
+      padding: 0.75rem 1.5rem;
+      border: 1px solid $accent-color;
+      border-radius: $border-radius;
+      background: none;
+      color: $accent-color;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+
+      &:hover {
+        background-color: rgba($accent-color, 0.1);
+      }
+
+      &.active {
+        background-color: $accent-color;
+        color: $white;
+      }
+    }
+  }
+
+  .certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: $breakpoint-md) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .certificate-card {
+    background-color: $white;
+    border-radius: $border-radius;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba($primary-color, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+
+      .overlay {
+        opacity: 1;
+      }
+
+      img {
+        transform: scale(1.05);
+      }
+    }
+
+    .certificate-image {
+      position: relative;
+      height: 250px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba($primary-color, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+
+        .view {
+          color: $white;
+          font-weight: 500;
+          padding: 0.5rem 1rem;
+          border: 2px solid $white;
+          border-radius: $border-radius;
+        }
+      }
+    }
+
+    .certificate-info {
+      padding: 1.5rem;
+
+      h3 {
+        color: $primary-color;
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+      }
+
+      .issuer {
+        color: $secondary-color;
+        font-size: 0.9rem;
+        margin-bottom: 0.25rem;
+      }
+
+      .date {
+        color: $accent-color;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba($primary-color, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 2rem;
+
+    .modal-content {
+      background: $white;
+      border-radius: $border-radius;
+      max-width: 900px;
+      width: 100%;
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+
+      .close-btn {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: none;
+        border: none;
+        font-size: 2rem;
+        color: $primary-color;
+        cursor: pointer;
+        z-index: 1;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: rgba($primary-color, 0.1);
+        }
+      }
+
+      .certificate-details {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+
+        @media (max-width: $breakpoint-md) {
+          grid-template-columns: 1fr;
+        }
+
+        img {
+          width: 100%;
+          height: auto;
+          border-radius: $border-radius;
+        }
+
+        .details-content {
+          padding: 2rem 2rem 2rem 0;
+
+          @media (max-width: $breakpoint-md) {
+            padding: 0 2rem 2rem;
+          }
+
+          h3 {
+            color: $primary-color;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+          }
+
+          p {
+            color: $secondary-color;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+
+            strong {
+              color: $primary-color;
+              margin-right: 0.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+} 

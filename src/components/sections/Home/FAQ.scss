@@ -1,0 +1,89 @@
+@import '../../../styles/variables';
+
+.faq {
+  padding: 4rem 0;
+  background-color: $light-gray;
+
+  h2 {
+    text-align: center;
+    color: $primary-color;
+    margin-bottom: 3rem;
+  }
+
+  .faq-grid {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .faq-item {
+    background-color: $white;
+    border-radius: $border-radius;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba($primary-color, 0.1);
+
+    .question {
+      width: 100%;
+      text-align: left;
+      padding: 1.5rem;
+      background: none;
+      border: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      color: $primary-color;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $accent-color;
+      }
+
+      .icon {
+        font-size: 1.5rem;
+        line-height: 1;
+        transition: transform 0.3s ease;
+      }
+    }
+
+    .answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+
+      .answer-content {
+        padding: 0 1.5rem 1.5rem;
+        color: $secondary-color;
+        line-height: 1.6;
+      }
+    }
+
+    &.active {
+      .question {
+        color: $accent-color;
+      }
+
+      .answer {
+        max-height: 300px; // Достаточно большое значение для любого контента
+      }
+    }
+  }
+
+  .faq-cta {
+    text-align: center;
+    margin-top: 3rem;
+
+    p {
+      color: $secondary-color;
+      margin-bottom: 1rem;
+    }
+
+    .btn {
+      min-width: 200px;
+    }
+  }
+} 

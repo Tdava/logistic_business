@@ -1,0 +1,46 @@
+@import '../../../styles/variables';
+
+.hero {
+  background-color: $light-gray;
+  padding: 6rem 0;
+  margin-top: 80px; // Учитываем фиксированный header
+
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+
+    h1 {
+      color: $primary-color;
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+
+      @media (max-width: $breakpoint-md) {
+        font-size: 2.5rem;
+      }
+    }
+
+    p {
+      color: $secondary-color;
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+
+      @media (max-width: $breakpoint-sm) {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .btn {
+        min-width: 200px;
+      }
+    }
+  }
+} 

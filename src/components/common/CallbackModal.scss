@@ -1,0 +1,94 @@
+@import '../../styles/variables';
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba($primary-color, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background: $white;
+  padding: 2rem;
+  border-radius: $border-radius;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  box-shadow: 0 10px 25px rgba($primary-color, 0.2);
+
+  h3 {
+    color: $primary-color;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: $secondary-color;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+
+    input,
+    select {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 2px solid rgba($primary-color, 0.1);
+      border-radius: $border-radius;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+
+      &:focus {
+        outline: none;
+        border-color: $accent-color;
+        box-shadow: 0 0 0 3px rgba($accent-color, 0.1);
+      }
+    }
+
+    .error {
+      color: $error-color;
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+    }
+  }
+
+  button[type="submit"] {
+    width: 100%;
+    padding: 1rem;
+    background-color: $accent-color;
+    color: $white;
+    border: none;
+    border-radius: $border-radius;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: darken($accent-color, 10%);
+    }
+
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+  }
+} 

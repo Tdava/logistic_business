@@ -1,0 +1,111 @@
+@import '../../../styles/variables';
+
+.work-process {
+  padding: 4rem 0;
+  background-color: $white;
+
+  h2 {
+    text-align: center;
+    color: $primary-color;
+    margin-bottom: 4rem;
+  }
+
+  .timeline {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    padding: 2rem 0;
+
+    @media (max-width: $breakpoint-md) {
+      padding: 0;
+    }
+  }
+
+  .timeline-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+    position: relative;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    &:nth-child(even) {
+      flex-direction: row-reverse;
+
+      .timeline-content {
+        text-align: right;
+
+        @media (max-width: $breakpoint-md) {
+          text-align: center;
+        }
+      }
+
+      .timeline-line {
+        left: auto;
+        right: 0;
+      }
+    }
+  }
+
+  .timeline-content {
+    flex: 1;
+    padding: 2rem;
+    background-color: $white;
+    border-radius: $border-radius;
+    box-shadow: 0 2px 10px rgba($primary-color, 0.1);
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    .step-number {
+      color: $accent-color;
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      color: $primary-color;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    p {
+      color: $secondary-color;
+      line-height: 1.6;
+    }
+  }
+
+  .timeline-line {
+    width: 2px;
+    height: 100%;
+    background-color: $accent-color;
+    position: absolute;
+    top: 50%;
+    left: 0;
+
+    @media (max-width: $breakpoint-md) {
+      display: none;
+    }
+  }
+
+  .process-cta {
+    text-align: center;
+    margin-top: 4rem;
+
+    .btn {
+      min-width: 250px;
+    }
+  }
+} 

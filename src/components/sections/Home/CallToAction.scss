@@ -1,0 +1,49 @@
+@import '../../../styles/variables';
+
+.call-to-action {
+  background-color: $primary-color;
+  color: $white;
+
+  .cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+
+    h2 {
+      color: $white !important;
+      margin-bottom: 1.5rem;
+    }
+
+    p {
+      color: rgba($white, 0.9);
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+
+      @media (max-width: $breakpoint-sm) {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .btn {
+        min-width: 200px;
+
+        &.secondary {
+          background-color: transparent;
+          border: 2px solid $white;
+          color: $white;
+
+          &:hover {
+            background-color: rgba($white, 0.1);
+          }
+        }
+      }
+    }
+  }
+} 

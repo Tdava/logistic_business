@@ -1,0 +1,19 @@
+.callback-btn {
+  padding: 0.8rem 1.5rem;
+  background-color: $accent-color;
+  color: $white;
+  border: none;
+  border-radius: $border-radius;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: darken($accent-color, 10%);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+} 

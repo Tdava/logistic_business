@@ -1,0 +1,33 @@
+// Цветовая схема
+$primary-color: #2c3e50;
+$secondary-color: #34495e;
+$accent-color: #3498db;
+$text-color: #2c3e50;
+$error-color: #ff4d4f;
+$border-color: #d9d9d9;
+$light-gray: #ecf0f1;
+$white: #ffffff;
+
+// Типография
+$font-family-base: 'Roboto', sans-serif;
+$font-size-base: 16px;
+$line-height-base: 1.5;
+
+// Размеры
+$container-width: 1200px;
+$container-padding: 20px;
+$border-radius: 4px;
+
+// Медиа-запросы
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// Export variables
+:export {
+  errorColor: $error-color;
+  primaryColor: $primary-color;
+  textColor: $text-color;
+  borderColor: $border-color;
+} 

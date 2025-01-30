@@ -1,0 +1,60 @@
+@import '../../../styles/variables';
+
+.contact-info {
+  h2 {
+    color: $primary-color;
+    margin-bottom: 2rem;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+
+    @media (max-width: $breakpoint-sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .info-card {
+    background-color: $white;
+    padding: 1.5rem;
+    border-radius: $border-radius;
+    box-shadow: 0 2px 10px rgba($primary-color, 0.1);
+
+    .icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      color: $primary-color;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .content {
+      div {
+        margin-bottom: 0.5rem;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        a {
+          color: $accent-color;
+          text-decoration: none;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: darken($accent-color, 10%);
+          }
+        }
+
+        span {
+          color: $secondary-color;
+        }
+      }
+    }
+  }
+} 

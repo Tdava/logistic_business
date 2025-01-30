@@ -1,0 +1,15 @@
+@import '../../../styles/variables';
+
+.callback-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: $white;
+  border-radius: $border-radius;
+  box-shadow: 0 2px 10px rgba($primary-color, 0.1);
+
+  .btn {
+    width: 100%;
+    margin-top: 1rem;
+  }
+} 

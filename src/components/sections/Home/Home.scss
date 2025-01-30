@@ -1,0 +1,14 @@
+@import '../../../styles/variables';
+
+.home-page {
+  section {
+    padding: 4rem 0;
+
+    h2 {
+      text-align: center;
+      color: $primary-color;
+      font-size: 2rem;
+      margin-bottom: 3rem;
+    }
+  }
+} 

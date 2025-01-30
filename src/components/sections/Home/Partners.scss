@@ -1,0 +1,95 @@
+@import '../../../styles/variables';
+
+.partners {
+  padding: 4rem 0;
+  background-color: $white;
+
+  h2 {
+    text-align: center;
+    color: $primary-color;
+    margin-bottom: 3rem;
+  }
+
+  .partners-slider {
+    overflow: hidden;
+    margin-bottom: 2rem;
+
+    .slider-track {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .partner-group {
+      min-width: 100%;
+      padding: 0 1rem;
+
+      h3 {
+        text-align: center;
+        color: $secondary-color;
+        margin-bottom: 2rem;
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .logos-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    align-items: center;
+
+    @media (max-width: $breakpoint-md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .logo-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem;
+      background-color: $white;
+      border-radius: $border-radius;
+      box-shadow: 0 2px 10px rgba($primary-color, 0.1);
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        max-height: 60px;
+        object-fit: contain;
+        filter: grayscale(100%);
+        transition: filter 0.3s ease;
+
+        &:hover {
+          filter: grayscale(0%);
+        }
+      }
+    }
+  }
+
+  .slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: $light-gray;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: background-color 0.3s ease;
+
+      &.active {
+        background-color: $accent-color;
+      }
+    }
+  }
+} 

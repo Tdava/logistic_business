@@ -1,0 +1,40 @@
+logistics-website/
+├── .gitignore
+├── package.json
+├── tsconfig.json
+├── public/
+│   ├── index.html
+│   ├── favicon.ico
+│   └── assets/
+│       ├── images/
+│       └── icons/
+├── src/
+│   ├── api/
+│   │   ├── types.ts
+│   │   └── endpoints.ts
+│   ├── components/
+│   │   ├── common/
+│   │   │   ├── Button/
+│   │   │   ├── Input/
+│   │   │   └── Modal/
+│   │   ├── layout/
+│   │   │   ├── Header/
+│   │   │   ├── Footer/
+│   │   │   └── Navigation/
+│   │   └── sections/
+│   │       ├── Home/
+│   │       ├── Services/
+│   │       ├── About/
+│   │       └── Contact/
+│   ├── hooks/
+│   │   └── useForm.ts
+│   ├── styles/
+│   │   ├── variables.scss
+│   │   └── global.scss
+│   ├── utils/
+│   │   └── validators.ts
+│   ├── context/
+│   │   └── AppContext.tsx
+│   ├── App.tsx
+│   └── index.tsx
+└── README.md 

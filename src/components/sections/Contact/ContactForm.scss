@@ -1,0 +1,187 @@
+@import '../../../styles/variables';
+
+.contact-form {
+  background-color: $white;
+  padding: 2.5rem;
+  border-radius: $border-radius;
+  box-shadow: 0 4px 20px rgba($primary-color, 0.08);
+
+  h3 {
+    color: $primary-color;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .form-description {
+    color: $secondary-color;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+
+    @media (max-width: $breakpoint-md) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+
+    &.full-width {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      display: block;
+      color: $primary-color;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 2px solid rgba($primary-color, 0.1);
+      border-radius: $border-radius;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      background-color: rgba($light-gray, 0.3);
+
+      &:focus {
+        outline: none;
+        border-color: $accent-color;
+        background-color: $white;
+        box-shadow: 0 0 0 4px rgba($accent-color, 0.1);
+      }
+
+      &::placeholder {
+        color: rgba($secondary-color, 0.6);
+      }
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .error {
+      color: $error-color;
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+      display: flex;
+      align-items: center;
+      
+      &::before {
+        content: '⚠️';
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  .form-footer {
+    text-align: center;
+    margin-top: 2rem;
+
+    .privacy-notice {
+      color: $secondary-color;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+      
+      a {
+        color: $accent-color;
+        text-decoration: none;
+        
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  button[type="submit"] {
+    background-color: $accent-color;
+    color: $white;
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-radius: $border-radius;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+
+    &:hover {
+      background-color: darken($accent-color, 10%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba($accent-color, 0.3);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+
+    &:disabled {
+      background-color: rgba($accent-color, 0.5);
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .loading-spinner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba($white, 0.3);
+      border-radius: 50%;
+      border-top-color: $white;
+      animation: spin 1s ease-in-out infinite;
+    }
+  }
+
+  // Анимация для спиннера загрузки
+  @keyframes spin {
+    to {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+
+  // Анимация успешной отправки
+  .success-message {
+    text-align: center;
+    color: #2ecc71;
+    padding: 2rem;
+    
+    .success-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    
+    h4 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    p {
+      color: $secondary-color;
+    }
+  }
+}
+
+// Эффект фокуса для всей формы
+.contact-form:focus-within {
+  box-shadow: 0 6px 24px rgba($primary-color, 0.12);
+} 

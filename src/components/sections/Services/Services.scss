@@ -1,0 +1,46 @@
+@import '../../../styles/variables';
+
+.services-page {
+  padding-top: 80px; // Учитываем фиксированный header
+
+  .services-hero {
+    text-align: center;
+    padding: 4rem 0;
+    background-color: $light-gray;
+
+    h1 {
+      color: $primary-color;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      color: $secondary-color;
+      font-size: 1.2rem;
+    }
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 4rem 0;
+  }
+
+  .services-cta {
+    text-align: center;
+    padding: 4rem 0;
+    background-color: $light-gray;
+    margin-top: 2rem;
+
+    h2 {
+      color: $primary-color;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      color: $secondary-color;
+      margin-bottom: 2rem;
+    }
+  }
+} 

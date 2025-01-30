@@ -1,0 +1,47 @@
+@import 'variables';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $text-color;
+}
+
+.container {
+  max-width: $container-width;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+}
+
+.btn {
+  padding: 12px 24px;
+  border-radius: $border-radius;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+
+  &.primary {
+    background-color: $accent-color;
+    color: $white;
+
+    &:hover {
+      background-color: darken($accent-color, 10%);
+    }
+  }
+
+  &.secondary {
+    background-color: $light-gray;
+    color: $text-color;
+
+    &:hover {
+      background-color: darken($light-gray, 10%);
+    }
+  }
+} 
