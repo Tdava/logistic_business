@@ -49,6 +49,7 @@
   position: relative;
   padding: 6rem 0;
   color: $white;
+  overflow: hidden;
   
   &::before {
     content: '';
@@ -57,49 +58,171 @@
     left: 0;
     right: 0;
     bottom: 0;
-    // Временно закомментируем изображения
-    // background-image: url('/images/ship-containers.jpg');
-    background-color: $primary-color; // Временный фон
+    background-image: linear-gradient(
+      rgba($primary-color, 0.7),
+      rgba($primary-color, 0.7)
+    ), url('@public/images/ship-containers/container_logistic.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    opacity: 0.8;
+    opacity: 1;
     z-index: -1;
+    transition: all 0.5s ease;
+    transform: scale(1.1);
+  }
 
-    // Закомментируем медиа-запросы с изображениями
-    /*
-    @media (min-width: $breakpoint-xl) {
-      background-image: url('/images/ship-containers/xl.webp');
-    }
-    
-    @media (min-width: $breakpoint-md) and (max-width: $breakpoint-xl - 1px) {
-      background-image: url('/images/ship-containers/md.webp');
-    }
-    
-    @media (max-width: $breakpoint-md - 1px) {
-      background-image: url('/images/ship-containers/sm.webp');
-    }
-    
-    @supports not (background-image: url('.webp')) {
-      @media (min-width: $breakpoint-xl) {
-        background-image: url('/images/ship-containers/xl.jpg');
-      }
-      
-      @media (min-width: $breakpoint-md) and (max-width: $breakpoint-xl - 1px) {
-        background-image: url('/images/ship-containers/md.jpg');
-      }
-      
-      @media (max-width: $breakpoint-md - 1px) {
-        background-image: url('/images/ship-containers/sm.jpg');
-      }
-    }
-    */
+  &:hover::before {
+    opacity: 0.95;
+    transform: scale(1.15);
   }
 
   .container {
     position: relative;
     z-index: 1;
-  }
 
-  // Добавьте стили для контента
+    h2 {
+      animation: slideInDown 0.8s ease forwards;
+      position: relative;
+      display: inline-block;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background-color: $accent-color;
+        transition: width 0.3s ease;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+    }
+
+    p {
+      animation: fadeIn 1s ease forwards;
+      animation-delay: 0.3s;
+      opacity: 0;
+      line-height: 1.8;
+      max-width: 800px;
+      margin: 2rem auto;
+    }
+
+    .stats {
+      animation: slideInUp 0.8s ease forwards;
+      animation-delay: 0.5s;
+      opacity: 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+
+      @media (max-width: $breakpoint-md) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media (max-width: $breakpoint-sm) {
+        grid-template-columns: 1fr;
+      }
+
+      .stat-item {
+        text-align: center;
+        padding: 1.5rem;
+        background-color: rgba($white, 0.1);
+        border-radius: $border-radius;
+        backdrop-filter: blur(5px);
+        transition: transform 0.3s ease;
+
+        .stat-icon {
+          font-size: 2.5rem;
+          color: $accent-color;
+          margin-bottom: 1rem;
+          transition: transform 0.3s ease;
+
+          svg {
+            filter: drop-shadow(0 2px 4px rgba($accent-color, 0.3));
+          }
+        }
+
+        &:hover {
+          transform: translateY(-5px);
+          .stat-icon {
+            transform: scale(1.1) rotate(5deg);
+          }
+        }
+
+        .number {
+          font-size: 2.5rem;
+          font-weight: bold;
+          color: $accent-color;
+          margin-bottom: 0.5rem;
+        }
+
+        .label {
+          font-size: 1.1rem;
+          color: $white;
+        }
+      }
+    }
+
+    .cta-button {
+      margin-top: 3rem;
+      text-align: center;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+      animation-delay: 0.7s;
+
+      .btn {
+        padding: 1rem 2.5rem;
+        font-size: 1.1rem;
+        background-color: $accent-color;
+        color: $white;
+        border: none;
+        border-radius: $border-radius;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+
+        &:hover {
+          background-color: darken($accent-color, 10%);
+          transform: translateY(-2px);
+          box-shadow: 0 5px 15px rgba($accent-color, 0.3);
+        }
+      }
+    }
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 } 
