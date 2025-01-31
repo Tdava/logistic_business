@@ -7,89 +7,155 @@
   h2 {
     text-align: center;
     color: $primary-color;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
+    font-size: 2rem;
   }
 
-  .partners-slider {
-    overflow: hidden;
-    margin-bottom: 2rem;
-
-    .slider-track {
-      display: flex;
-      transition: transform 0.5s ease;
-    }
-
-    .partner-group {
-      min-width: 100%;
-      padding: 0 1rem;
-
-      h3 {
-        text-align: center;
-        color: $secondary-color;
-        margin-bottom: 2rem;
-        font-size: 1.5rem;
-      }
-    }
+  .section-description {
+    text-align: center;
+    color: $secondary-color;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    font-size: 1.1rem;
   }
 
-  .logos-grid {
+  .partners-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 2rem;
-    align-items: center;
+    margin: 0 auto;
+    max-width: 1200px;
+
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
 
     @media (max-width: $breakpoint-md) {
       grid-template-columns: repeat(2, 1fr);
     }
 
-    .logo-item {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 1.5rem;
-      background-color: $white;
-      border-radius: $border-radius;
-      box-shadow: 0 2px 10px rgba($primary-color, 0.1);
-      transition: transform 0.3s ease;
-
-      &:hover {
-        transform: scale(1.05);
-      }
-
-      img {
-        max-width: 100%;
-        height: auto;
-        max-height: 60px;
-        object-fit: contain;
-        filter: grayscale(100%);
-        transition: filter 0.3s ease;
-
-        &:hover {
-          filter: grayscale(0%);
-        }
-      }
+    @media (max-width: $breakpoint-sm) {
+      grid-template-columns: 1fr;
     }
   }
 
-  .slider-dots {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-top: 2rem;
+  .partner-card {
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: $border-radius;
+    transition: all 0.3s ease;
+    background-color: $white;
+    box-shadow: 0 2px 10px rgba($primary-color, 0.1);
 
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background-color: $light-gray;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-      transition: background-color 0.3s ease;
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 20px rgba($primary-color, 0.15);
 
-      &.active {
-        background-color: $accent-color;
+      .partner-logo img {
+        filter: grayscale(0%);
+        transform: scale(1.1);
       }
+    }
+
+    .partner-logo {
+      height: 80px;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        filter: grayscale(100%);
+        transition: all 0.3s ease;
+      }
+    }
+
+    h3 {
+      color: $primary-color;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: $secondary-color;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+    
+    @for $i from 1 through 5 {
+      &:nth-child(#{$i}) {
+        animation-delay: #{$i * 0.1}s;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .category-badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      background-color: rgba($accent-color, 0.1);
+      color: $accent-color;
+      border-radius: $border-radius;
+      font-size: 0.85rem;
+      margin-top: 1rem;
+    }
+  }
+}
+
+.become-partner {
+  text-align: center;
+  margin-top: 3rem;
+
+  .btn {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba($primary-color, 0.2);
+    }
+  }
+}
+
+.partners-categories {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+
+  .category-btn {
+    padding: 0.5rem 1.5rem;
+    border: 2px solid $primary-color;
+    border-radius: $border-radius;
+    background: none;
+    color: $primary-color;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+
+    &:hover {
+      background-color: rgba($primary-color, 0.1);
+    }
+
+    &.active {
+      background-color: $primary-color;
+      color: $white;
     }
   }
 } 
